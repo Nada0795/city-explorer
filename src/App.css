@@ -1,4 +1,4 @@
-h1 {
+/* h1 {
   text-align: center;
   background-color: #BD4B4B;
   padding: 20px;
@@ -24,5 +24,23 @@ p{
   text-align: center;
   color:blue;
   font-size: x-large;
+} */
+
+div{
+  text-align: center;
+  background-color:rgb(190, 100, 100);
 }
 
+h1{
+  color: antiquewhite;
+}
+
+Form{
+  color: blueviolet;
+  justify-content: center;
+}
+
+section{
+  font-size: xx-large;
+  color: blueviolet;
+}
