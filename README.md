@@ -45,3 +45,6 @@ display the informaion for the user on the browser.
 ### Actual time needed to complete: 6 hours
 
 
+## web request-response cycle diagram : 
+![web request-response](https://drive.google.com/file/d/15h067xBP2myOCheT8cfTsGOXJdHtUxam/view?usp=sharing)
+

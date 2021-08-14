@@ -6,7 +6,11 @@ import axios from 'axios';
 import {Col} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import {Row} from 'react-bootstrap';
+
+import './App.css'
 import Weather from './components/weather';
+import Map from './components/Map'
+import Movies from './components/Movies'
 
 class App extends React.Component{
   constructor(props){
@@ -19,6 +23,9 @@ class App extends React.Component{
      errMsg: 'Unable to geocode',
      displayErr:false,
      weatherArr:[]
+    showCard: false,
+    weather :[],
+    movies:[],
     }
   }
   getLocData = async(event)=>{
@@ -33,7 +40,8 @@ class App extends React.Component{
      lat : locResult.data[0].lat,
      lon: locResult.data[0].lon,
      showMap: true,
-
+showCard:true,
+displayErr:false,
    })
 this.getWethearData(cityName);
 
@@ -53,13 +61,24 @@ let weatherResult = await axios.get(URL);
  this.setState({
    weatherArr : weatherResult.data,
 
-
  })
  console.log(weatherResult.data)
 }
+
+
+const urlMovies = `${process.env.REACT_APP_SERVER_URL}/movies?city=${city}`
+    let moviesResult = await axios.get(urlMovies)
+    this.setState({
+      movies : moviesResult.data
+    })
+
+
 catch{
   this.setState({
     displayErr:true,
+    showMap:false,
+    showCard:false,
+
   })
 }
 }
@@ -107,12 +126,27 @@ this.state.weatherArr && this.state.weatherArr.map(item=>
   )
 
 }
+
+<map 
+showCard={this.state.showCard}
+displayErr={this.state.displayErr}
+errorMsg={this.state.errMsg}
+/>
+
+<Movies showCard= {this.state.showCard} movies={this.state.movies} ></Movies>
+
+
 {
   // this.state.displayErr && this.state.errMsg
 }
+
+
+{/* https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg */}
+
 <p>
 &copy;NadaAl-abdullah
 </p>
+
 </div>
      
     )

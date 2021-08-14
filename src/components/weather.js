@@ -1,4 +1,8 @@
+
+
 import React, { Component } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Card } from 'react-bootstrap';
 
  class Weather extends Component {
     render() {
