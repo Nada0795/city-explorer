@@ -62,7 +62,7 @@ let weatherResult = await axios.get(URL);
    weatherArr : weatherResult.data,
 
  })
- console.log(weatherResult.data)
+//  console.log(weatherResult.data)
 }
 
 
@@ -134,6 +134,7 @@ errorMsg={this.state.errMsg}
 />
 
 <Movies showCard= {this.state.showCard} movies={this.state.movies} ></Movies>
+<Weather showCard= {this.state.showCard} Weather={this.state.Weather} ></Weather>
 
 
 {
